@@ -1,0 +1,8 @@
+src/
+vitest.config.ts
+tsconfig.json
+.gitignore
+coverage/
+*.map
+*.tsbuildinfo
+vendor.d.ts

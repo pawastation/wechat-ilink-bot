@@ -7,3 +7,5 @@ dist/
 coverage/
 *.tsbuildinfo
 .claude/settings.local.json
+# Root .mcp.json is local dev config (packages/ilink-cc-bot/.mcp.json is plugin config, not ignored)
+/.mcp.json

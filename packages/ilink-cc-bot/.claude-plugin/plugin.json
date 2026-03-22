@@ -1,0 +1,14 @@
+{
+  "name": "ilink-cc-bot",
+  "version": "0.1.0",
+  "description": "WeChat iLink Bot channel for Claude Code — receive and reply to WeChat messages from your session",
+  "author": {
+    "name": "pawaca",
+    "email": "pawaca@gmail.com",
+    "url": "https://github.com/pawastation"
+  },
+  "homepage": "https://github.com/pawastation/wechat-ilink-bot/tree/main/packages/ilink-cc-bot",
+  "repository": "https://github.com/pawastation/wechat-ilink-bot",
+  "license": "MIT",
+  "keywords": ["wechat", "weixin", "ilink", "channel", "chat", "messaging"]
+}

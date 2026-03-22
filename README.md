@@ -1,25 +1,33 @@
+**English** | [中文](./README.zh-CN.md)
+
 # wechat-ilink-bot
 
-基于微信 iLink Bot 协议的 bot 开发 monorepo。
+Monorepo for WeChat iLink Bot protocol development.
 
-## 项目结构
+## Project Structure
 
 ```
 packages/
-  ilink-bot-sdk/    @pawastation/ilink-bot-sdk — iLink Bot 协议 SDK
-  echo-bot/         echo bot 示例（收到什么回什么，private）
+├── ilink-bot-sdk/   # @pawastation/ilink-bot-sdk
+├── ilink-cc-bot/    # @pawastation/ilink-cc-bot
+└── echo-bot/        # echo bot example (private)
 ```
 
-## 前置条件
+## Prerequisites
 
 - Node.js >= 18
 - [pnpm](https://pnpm.io/)
 
-## 开发
+## Development
 
 ```bash
+# Install dependencies
 pnpm install
+
+# Build all packages
 pnpm build
+
+# Run tests
 pnpm test
 ```
 
@@ -27,15 +35,24 @@ pnpm test
 
 ### [@pawastation/ilink-bot-sdk](./packages/ilink-bot-sdk/)
 
-从 [`@tencent-weixin/openclaw-weixin`](https://www.npmjs.com/package/@tencent-weixin/openclaw-weixin) 提取的独立 iLink Bot 协议客户端。零框架依赖，覆盖扫码登录、消息收发、媒体加解密传输等完整能力。
+Standalone iLink Bot protocol SDK extracted from [@tencent-weixin/openclaw-weixin](https://www.npmjs.com/package/@tencent-weixin/openclaw-weixin). Zero framework dependencies, covers QR login, messaging, and encrypted media transfer.
+
+### [@pawastation/ilink-cc-bot](./packages/ilink-cc-bot/)
+
+WeChat channel for Claude Code. Receive and reply to WeChat messages from your Claude Code session.
+
+```bash
+npx @pawastation/ilink-cc-bot login    # QR code login
+npx @pawastation/ilink-cc-bot setup    # Show .mcp.json configuration
+```
 
 ### [echo-bot](./packages/echo-bot/) (private)
 
-基于 ilink-bot-sdk 的最简 bot 示例：扫码登录 → 长轮询收消息 → 原样回复（文本 + 媒体）。
+Minimal echo bot example for SDK validation: QR login, long-poll for messages, echo back text and media as-is.
 
 ```bash
-pnpm --filter echo-bot login    # 扫码登录
-pnpm --filter echo-bot start    # 启动 echo bot
+pnpm --filter echo-bot login    # QR code login
+pnpm --filter echo-bot start    # Start the echo bot
 ```
 
 ## License
