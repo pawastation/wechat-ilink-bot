@@ -1,6 +1,6 @@
 {
   "name": "@pawastation/ilink-cc-bot",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "WeChat iLink Bot channel for Claude Code",
   "author": "pawaca <pawaca@gmail.com>",
   "license": "MIT",
@@ -29,9 +29,7 @@
       "default": "./dist/channel.js"
     }
   },
-  "bin": {
-    "ilink-cc-bot": "./dist/cli.js"
-  },
+  "bin": "./dist/cli.js",
   "files": [
     "dist",
     ".claude-plugin",
