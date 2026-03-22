@@ -1,0 +1,64 @@
+{
+  "name": "@pawastation/ilink-bot-sdk",
+  "version": "0.1.0",
+  "description": "WeChat iLink Bot SDK - standalone client for the iLink Bot protocol",
+  "author": "pawaca <pawaca@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pawastation/wechat-ilink-bot.git",
+    "directory": "packages/ilink-bot-sdk"
+  },
+  "homepage": "https://github.com/pawastation/wechat-ilink-bot/tree/main/packages/ilink-bot-sdk",
+  "bugs": {
+    "url": "https://github.com/pawastation/wechat-ilink-bot/issues"
+  },
+  "keywords": [
+    "wechat",
+    "weixin",
+    "ilink",
+    "bot",
+    "sdk",
+    "messaging",
+    "chat"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm run build && pnpm run typecheck && pnpm test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "silk-wasm": "*"
+  },
+  "peerDependenciesMeta": {
+    "silk-wasm": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
+  }
+}

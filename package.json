@@ -1,0 +1,17 @@
+{
+  "name": "wechat-ilink-bot",
+  "private": true,
+  "author": "pawaca <pawaca@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pawastation/wechat-ilink-bot.git"
+  },
+  "packageManager": "pnpm@10.6.3",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint"
+  }
+}
