@@ -1,6 +1,6 @@
 {
   "name": "ilink-cc-bot",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "WeChat iLink Bot channel for Claude Code — receive and reply to WeChat messages from your session",
   "author": {
     "name": "pawaca",

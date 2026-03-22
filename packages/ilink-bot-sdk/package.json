@@ -1,6 +1,6 @@
 {
   "name": "@pawastation/ilink-bot-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "WeChat iLink Bot SDK - standalone client for the iLink Bot protocol",
   "author": "pawaca <pawaca@gmail.com>",
   "license": "MIT",

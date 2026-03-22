@@ -72,7 +72,7 @@ jobs:
 
       - name: Publish to npm
         working-directory: ${{ steps.pkg.outputs.dir }}
-        run: npm publish --ignore-scripts --provenance --access public
+        run: pnpm publish --no-git-checks --provenance --access public
 
       - name: Create GitHub Release
         env:

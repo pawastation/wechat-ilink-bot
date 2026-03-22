@@ -1,6 +1,6 @@
 {
   "name": "@pawastation/ilink-cc-bot",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "WeChat iLink Bot channel for Claude Code",
   "author": "pawaca <pawaca@gmail.com>",
   "license": "MIT",
