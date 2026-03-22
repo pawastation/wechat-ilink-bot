@@ -2,57 +2,60 @@
 
 # wechat-ilink-bot
 
-Monorepo for WeChat iLink Bot protocol development.
-
-## Project Structure
+Chat with [Claude Code](https://code.claude.com) through WeChat — ask questions, trigger tasks, and get replies, all from your phone.
 
 ```
-packages/
-├── ilink-bot-sdk/   # @pawastation/ilink-bot-sdk
-├── ilink-cc-bot/    # @pawastation/ilink-cc-bot
-└── echo-bot/        # echo bot example (private)
+WeChat User ←→ iLink API ←→ ilink-cc-bot (MCP Server) ←→ Claude Code
 ```
 
-## Prerequisites
+## Quick Start
 
-- Node.js >= 18
-- [pnpm](https://pnpm.io/)
+```bash
+# 1. Login with WeChat QR code
+npx @pawastation/ilink-cc-bot login
+
+# 2. Get .mcp.json configuration
+npx @pawastation/ilink-cc-bot setup
+
+# 3. Add the config to your project, then start Claude Code
+claude --dangerously-load-development-channels server:wechat
+```
+
+Send a message to the bot on WeChat — Claude Code receives it, works on your codebase, and replies back to WeChat.
+
+## What's in this repo
+
+### [@pawastation/ilink-cc-bot](./packages/ilink-cc-bot/) — WeChat channel for Claude Code
+
+The main package. An [MCP](https://modelcontextprotocol.io) server that Claude Code spawns as a subprocess to bridge WeChat messages into your session.
+
+- Receive text, images, files, videos, and voice messages from WeChat
+- Claude replies via the `reply` tool — auto-converts markdown to plain text
+- Typing indicator while Claude is thinking
+- [Full documentation →](./packages/ilink-cc-bot/)
+
+### [@pawastation/ilink-bot-sdk](./packages/ilink-bot-sdk/) — iLink Bot Protocol SDK
+
+The protocol layer powering ilink-cc-bot. Use it to build your own WeChat bot without any framework dependency.
+
+Extracted from [`@tencent-weixin/openclaw-weixin`](https://www.npmjs.com/package/@tencent-weixin/openclaw-weixin), covering QR login, messaging, CDN media encryption, long-polling, and more.
+
+```bash
+npm install @pawastation/ilink-bot-sdk
+```
+
+- [Full documentation →](./packages/ilink-bot-sdk/)
+
+### [echo-bot](./packages/echo-bot/) — Example
+
+A minimal bot that echoes everything back. Useful for testing the SDK and exploring the iLink Bot protocol.
+
+- [Full documentation →](./packages/echo-bot/)
 
 ## Development
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Build all packages
-pnpm build
-
-# Run tests
-pnpm test
-```
-
-## Packages
-
-### [@pawastation/ilink-bot-sdk](./packages/ilink-bot-sdk/)
-
-Standalone iLink Bot protocol SDK extracted from [@tencent-weixin/openclaw-weixin](https://www.npmjs.com/package/@tencent-weixin/openclaw-weixin). Zero framework dependencies, covers QR login, messaging, and encrypted media transfer.
-
-### [@pawastation/ilink-cc-bot](./packages/ilink-cc-bot/)
-
-WeChat channel for Claude Code. Receive and reply to WeChat messages from your Claude Code session.
-
-```bash
-npx @pawastation/ilink-cc-bot login    # QR code login
-npx @pawastation/ilink-cc-bot setup    # Show .mcp.json configuration
-```
-
-### [echo-bot](./packages/echo-bot/) (private)
-
-Minimal echo bot example for SDK validation: QR login, long-poll for messages, echo back text and media as-is.
-
-```bash
-pnpm --filter echo-bot login    # QR code login
-pnpm --filter echo-bot start    # Start the echo bot
+pnpm install && pnpm build && pnpm test
 ```
 
 ## License
