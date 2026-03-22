@@ -74,8 +74,10 @@ jobs:
         working-directory: ${{ steps.pkg.outputs.dir }}
         run: |
           # Use pnpm pack to resolve workspace:* protocol, then publish the tarball
-          TARBALL=$(pnpm pack --pack-destination /tmp 2>/dev/null | tail -1)
-          npm publish "/tmp/$TARBALL" --provenance --access public
+          pnpm pack --pack-destination /tmp
+          TARBALL=$(ls /tmp/pawastation-*.tgz | head -1)
+          echo "Publishing $TARBALL"
+          npm publish "$TARBALL" --provenance --access public
 
       - name: Create GitHub Release
         env:
