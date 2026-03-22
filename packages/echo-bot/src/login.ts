@@ -52,7 +52,7 @@ async function main() {
   }
 }
 
-main().catch((err) => {
+main().catch((err: unknown) => {
   console.error("Login failed:", err);
   process.exit(1);
 });
